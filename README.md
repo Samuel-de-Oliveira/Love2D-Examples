@@ -1,9 +1,6 @@
 # Love2D-Examples
-Project writed with lua language
-Love2D-Examples repository, created by: <!-- Your name -->
+This is all my games, they all are developed using Love2D framework, I'm not will really care if you copy and use to do other things, so help yourself about this.
 
- ## How it work
-<!-- Your program info. -->
+more info about Love2D: https://love2d.org/
 
-## Download
-<!-- Download info. -->
+#### Created by: Samuel-de-Oliveira 2022
