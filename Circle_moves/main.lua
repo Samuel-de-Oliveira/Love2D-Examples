@@ -27,16 +27,16 @@ function love.update(dt)
 	
 	-- Circle movement
 	if Key('d') or Key('right') then
-		x = x + 250 * dt
+		x = x + 270 * dt
 	end
 	if Key('a') or Key('left') then
-		x = x - 250 * dt
+		x = x - 270 * dt
 	end
 	if Key('w') or Key('up') then
-		y = y - 250 *dt
+		y = y - 270 * dt
 	end
 	if Key('s') or Key('down') then
-		y = y + 250 * dt
+		y = y + 270 * dt
 	end
 
 	-- Border barrer
@@ -57,4 +57,6 @@ end
 function love.draw()
 	-- Draw the circle
 	love.graphics.circle('fill', x, y, 60, 50)
+	-- Add text on the circle
+	love.graphics.print('W A S D: Moves\nEscape: Exit', x - 50, y - 100) 
 end
