@@ -6,15 +6,19 @@ function love.load()
 	-- Place the circle in the center
 	x = love.graphics.getWidth() / 2
 	y = love.graphics.getHeight() / 2
+
+	-- Help message text
+	helpText = 'W A S D: Moves\nEscape: Exit'	
 end
 
 function love.keypressed(Key, scanCode, isRepeat)
-	-- Full screen
+	-- Full screen control
 	if Key == 'f11' then
 		full = not full
 		love.window.setFullscreen(full)
 		love.timer.sleep(0.2)
 	end
+
 	-- Quit game
 	if Key == 'escape' then
 		love.event.quit()
@@ -27,19 +31,23 @@ function love.update(dt)
 	
 	-- Circle movement
 	if Key('d') or Key('right') then
+		helpText = ''
 		x = x + 270 * dt
 	end
 	if Key('a') or Key('left') then
+		helpText = ''
 		x = x - 270 * dt
 	end
 	if Key('w') or Key('up') then
+		helpText = ''
 		y = y - 270 * dt
 	end
 	if Key('s') or Key('down') then
+		helpText = ''
 		y = y + 270 * dt
 	end
 
-	-- Border barrer
+	-- Border barrer (To the circle doesn't exit the window)
 	if x < 0 then
 		x = 0
 	end
@@ -58,5 +66,5 @@ function love.draw()
 	-- Draw the circle
 	love.graphics.circle('fill', x, y, 60, 50)
 	-- Add text on the circle
-	love.graphics.print('W A S D: Moves\nEscape: Exit', x - 50, y - 100) 
+	love.graphics.print(helpText, x - 50, y - 100) 
 end
