@@ -1,11 +1,10 @@
+-- Include player atributes in Player.lua file
+local Player = require("Player")
+
 function love.load()
 	-- Fullscreen presets
 	full = true
 	love.window.setFullscreen(full)
-
-	-- Place the circle in the center
-	x = love.graphics.getWidth() / 2
-	y = love.graphics.getHeight() / 2
 
 	-- Help message text
 	helpText = 'W A S D: Moves\nEscape: Exit'	
@@ -32,39 +31,39 @@ function love.update(dt)
 	-- Circle movement
 	if Key('d') or Key('right') then
 		helpText = ''
-		x = x + 270 * dt
+		Player.Position.X = Player.Position.X + 270 * dt
 	end
 	if Key('a') or Key('left') then
 		helpText = ''
-		x = x - 270 * dt
+		Player.Position.X = Player.Position.X - 270 * dt
 	end
 	if Key('w') or Key('up') then
 		helpText = ''
-		y = y - 270 * dt
+		Player.Position.Y = Player.Position.Y - 270 * dt
 	end
 	if Key('s') or Key('down') then
 		helpText = ''
-		y = y + 270 * dt
+		Player.Position.Y = Player.Position.Y + 270 * dt
 	end
 
 	-- Border barrer (To the circle doesn't exit the window)
-	if x < 0 then
-		x = 0
+	if Player.Position.X < 0 then
+		Player.Position.X = 0
 	end
-	if x > love.graphics.getWidth() then
-		x = love.graphics.getWidth()
+	if Player.Position.X > love.graphics.getWidth() then
+		Player.Position.X = love.graphics.getWidth()
 	end
-	if y < 0 then
-		y = 0
+	if Player.Position.Y < 0 then
+		Player.Position.Y = 0
 	end
-	if y > love.graphics.getHeight() then
-		y = love.graphics.getHeight()
+	if Player.Position.Y > love.graphics.getHeight() then
+		Player.Position.Y = love.graphics.getHeight()
 	end
 end
 
 function love.draw()
 	-- Draw the circle
-	love.graphics.circle('fill', x, y, 60, 50)
+	love.graphics.circle('fill', Player.Position.X, Player.Position.Y, 60, 50)
 	-- Add text on the circle
-	love.graphics.print(helpText, x - 50, y - 100) 
+	love.graphics.print(helpText, Player.Position.X - 50, Player.Position.Y - 100) 
 end
