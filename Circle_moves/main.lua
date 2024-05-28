@@ -7,7 +7,7 @@ function love.load()
 	love.window.setFullscreen(full)
 
 	-- Help message text
-	helpText = 'W A S D: Moves\nEscape: Exit'	
+	helpText = 'W A S D: Moves\nEscape: Exit, R: Restart'	
 end
 
 function love.keypressed(Key, scanCode, isRepeat)
@@ -22,6 +22,11 @@ function love.keypressed(Key, scanCode, isRepeat)
 	if Key == 'escape' then
 		love.event.quit()
 	end
+
+   -- Restart game
+   if Key == 'r' then
+      love.event.restart()
+   end
 end
 
 function love.update(dt)

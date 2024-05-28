@@ -1,5 +1,5 @@
---[[ Crate a module for player is a greate idea because you can 
-     make atribute for it, in this case have only the position
+--[[ Crate a module for player is a greate idea, because you can 
+     make atribute for it, in this case have only the position,
      but depending of the game you're making you can create a
      variable of Health of player Mana and others things.
      So take this tip ;)
