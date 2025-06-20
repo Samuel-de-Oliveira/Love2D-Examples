@@ -11,11 +11,16 @@ function timeFormat(time)
     seconds = time % 60
     if seconds < 10 then
       seconds = "0" .. string.format("%.3f", seconds)
+      return string.format(
+        '%d:%s', minutes, seconds
+      )
+    else
+      return string.format(
+        '%d:%.3f', minutes, seconds
+      )
     end
 
-    return string.format(
-      '%d:%.3f', minutes, seconds
-    )
+    
   else
     return "0"
   end
