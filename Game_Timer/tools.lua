@@ -1,6 +1,7 @@
 tools = {}
 
 
+-- Format time
 function timeFormat(time)
   if time < 60 then
     return string.format(
