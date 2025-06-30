@@ -1,8 +1,9 @@
 local tools = require("tools")
 
 -- Set some vars
-local Timer = 0
-local Text  = ''
+local Timer  = 0
+local Text   = ''
+local active = true
 
 function love.load()
   -- Configure font
@@ -11,8 +12,17 @@ end
 
 
 function love.update(dt)
+  -- Start/Stop timer
+  local spacebar_key = love.keyboard.isDown('space')
+  if spacebar_key then
+    active = not active
+    love.timer.sleep(0.25)
+  end
+
   -- Delta time working
-  Timer = Timer + dt
+  if active then
+    Timer = Timer + dt
+  end
 
   -- Funny thing
   if Timer >= 60 then
@@ -37,5 +47,10 @@ function love.draw()
   -- Show funny message
   love.graphics.print(
     Text, 100, 100
+  )
+
+  -- Show instruction message
+  love.graphics.print(
+    'Press \'spacebar\' to start/stop the timer', 100, 150
   )
 end
