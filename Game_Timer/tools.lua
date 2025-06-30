@@ -20,10 +20,17 @@ function timeFormat(time)
         '%d:%.3f', minutes, seconds
       )
     end
-
-    
   else
-    return "0"
+    hour = math.floor(time / 3600)
+    minutes = time % 3600
+    
+    if minutes < 600 then
+      minutes = '0' .. minutes
+      return hour .. ':' .. minutes
+    else
+      return hout .. ':' .. minutes
+    end
+    return 
   end
 end
 
