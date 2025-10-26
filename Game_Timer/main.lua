@@ -26,7 +26,7 @@ function love.update(dt)
 
   -- Funny thing
   if Timer >= 60 then
-    Text = 'Realy, you are here for 1 minute?'
+    Text = 'Realy, are you here for more than 1 minute?'
   end
 
   -- Get the Width and Height in real time
